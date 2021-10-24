@@ -60,7 +60,7 @@ class Proxmox
      *
      * @var \ProxmoxVE\AuthToken
      */
-    private $authToken;
+    public $authToken;
 
 
     /**
