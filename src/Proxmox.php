@@ -115,7 +115,7 @@ class Proxmox
         switch ($method) {
             case 'GET':
                 return $this->httpClient->get($url, [
-                    'verify' => false,
+                    'verify' => true,
                     'exceptions' => false,
                     'cookies' => $cookies,
                     'query' => $params,
@@ -127,7 +127,7 @@ class Proxmox
                     'CSRFPreventionToken' => $this->authToken->getCsrf(),
                 ];
                 return $this->httpClient->request($method, $url, [
-                    'verify' => false,
+                    'verify' => true,
                     'exceptions' => false,
                     'cookies' => $cookies,
                     'headers' => $headers,
@@ -192,7 +192,7 @@ class Proxmox
     {
         $loginUrl = $this->credentials->getApiUrl() . '/json/access/ticket';
         $response = $this->httpClient->post($loginUrl, [
-            'verify' => false,
+            'verify' => true,
             'exceptions' => false,
             'form_params' => [
                 'username' => $this->credentials->getUsername(),
