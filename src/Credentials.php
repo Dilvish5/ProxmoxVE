@@ -65,11 +65,11 @@ class Credentials
             throw new MalformedCredentialsException($error);
         }
 
-        $this->hostname = $credentials['hostname'];
+        $this->hostname = preg_replace("/[^a-fA-F0-9.]/", "", $credentials['hostname']);
         $this->username = $credentials['username'];
         $this->password = $credentials['password'];
         $this->realm = $credentials['realm'];
-        $this->port = $credentials['port'];
+        $this->port = intval($credentials['port']);
         $this->system = $credentials['system'];
     }
 
