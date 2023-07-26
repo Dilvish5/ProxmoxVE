@@ -412,7 +412,7 @@ class Proxmox
      *
      * @throws \InvalidArgumentException If given params are not an array.
      */
-    public function delete($actionPath, $params = [], $json)
+    public function delete($actionPath, $params = [], $json = false)
     {
         if (!is_array($params)) {
             $errorMessage = 'DELETE params should be an associative array.';
