@@ -86,8 +86,6 @@ class AuthToken
      *
      * @return string The ticket representing a valid Proxmox session.
      *
-     * @todo Check validity of the ticket if ticket has expired should be
-     *       returned false, or do some other thing.
      */
     public function getTicket()
     {
@@ -127,6 +125,6 @@ class AuthToken
      */
     public function isValid()
     {
-        return $this->timestamp + 7200 >= time();
+        return $this->timestamp + 7000 >= time();
     }
 }
