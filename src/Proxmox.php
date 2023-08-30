@@ -106,6 +106,10 @@ class Proxmox
      */
     private function requestResource($actionPath, $params = [], $method = 'GET', $json = false)
     {
+        if(!$this->authToken->isValid()){
+            $this->authToken = $this->login();
+        }
+        
         $url = $this->getApiUrl() . $actionPath;
 
         $cookies = CookieJar::fromArray([
