@@ -454,6 +454,7 @@ class Proxmox
      */
     public function getVersion()
     {
-        return $this->get('/version');
+        $data = $this->get('/version');
+        return $data['data']['release'];
     }
 }
